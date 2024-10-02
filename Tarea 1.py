@@ -130,48 +130,6 @@ ylabel("Magnitude")
 xlim(0,13000)
 ylim(-5,20)
 show()
----------------------------------------------------------------------------
-FileNotFoundError                         Traceback (most recent call last)
-Cell In[15], line 4
-      1 from pylab import scatter,xlabel,ylabel,xlim,ylim,show
-      2 from numpy import loadtxt
-----> 4 data = loadtxt("stars.data.dat",float)
-      5 x = data[:,0]
-      6 y = data[:,1]
-
-File c:\Users\dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\numpy\lib\_npyio_impl.py:1397, in loadtxt(fname, dtype, comments, delimiter, converters, skiprows, usecols, unpack, ndmin, encoding, max_rows, quotechar, like)
-   1394 if isinstance(delimiter, bytes):
-   1395     delimiter = delimiter.decode('latin1')
--> 1397 arr = _read(fname, dtype=dtype, comment=comment, delimiter=delimiter,
-   1398             converters=converters, skiplines=skiprows, usecols=usecols,
-   1399             unpack=unpack, ndmin=ndmin, encoding=encoding,
-   1400             max_rows=max_rows, quote=quotechar)
-   1402 return arr
-
-File c:\Users\dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\numpy\lib\_npyio_impl.py:1012, in _read(fname, delimiter, comment, quote, imaginary_unit, usecols, skiplines, max_rows, converters, ndmin, unpack, dtype, encoding)
-   1010     fname = os.fspath(fname)
-   1011 if isinstance(fname, str):
--> 1012     fh = np.lib._datasource.open(fname, 'rt', encoding=encoding)
-   1013     if encoding is None:
-   1014         encoding = getattr(fh, 'encoding', 'latin1')
-
-File c:\Users\dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\numpy\lib\_datasource.py:192, in open(path, mode, destpath, encoding, newline)
-    155 """
-    156 Open `path` with `mode` and return the file object.
-    157 
-   (...)
-    188 
-    189 """
-    191 ds = DataSource(destpath)
---> 192 return ds.open(path, mode, encoding=encoding, newline=newline)
-
-File c:\Users\dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\numpy\lib\_datasource.py:529, in DataSource.open(self, path, mode, encoding, newline)
-    526     return _file_openers[ext](found, mode=mode,
-    527                               encoding=encoding, newline=newline)
-    528 else:
---> 529     raise FileNotFoundError(f"{path} not found.")
-
-FileNotFoundError: stars.data.dat not found.
 
 #Reproduccion
 #Ahora graficaremos con matplotlib
